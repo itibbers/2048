@@ -147,24 +147,24 @@ document.addEventListener('touchend', function (event) {
         if (deltax > 0) { // Right
             if (moveRight()) {
                 setTimeout(generateOneNumber(), 200);
-                setTimeout(isGameOver(), 300);
+                setTimeout(isGameOver(), 400);
             }
         } else { // Left
             if (moveLeft()) {
                 setTimeout(generateOneNumber(), 200);
-                setTimeout(isGameOver(), 300);
+                setTimeout(isGameOver(), 400);
             }
         }
     } else { // Y
         if (deltay > 0) { // Down
             if (moveDown()) {
                 setTimeout(generateOneNumber(), 200);
-                setTimeout(isGameOver(), 300);
+                setTimeout(isGameOver(), 400);
             }
         } else { // Up
             if (moveUp()) {
                 setTimeout(generateOneNumber(), 200);
-                setTimeout(isGameOver(), 300);
+                setTimeout(isGameOver(), 400);
             }
         }
     }
