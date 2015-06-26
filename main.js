@@ -1,6 +1,11 @@
 var board = new Array();
 var score = 0;
 
+var startx = 0;
+var starty = 0;
+var endx = 0;
+var endy = 0;
+
 $(document).ready(function(){
 	newGame();
 });
@@ -87,26 +92,30 @@ function updateBoardView() {
 // 获取事件
 $(document).keydown(function (event) {
     switch (event.keyCode) {  // 注意大小写 keyCode
-        case 37:
+        case 37: // Left
             // console.log("Keydown Left success!");
+            event.preventDefault();
             if (moveLeft()) {
                 setTimeout(generateOneNumber(), 200);
                 setTimeout(isGameOver(), 400);
             }
             break;
-        case 38:
+        case 38: // Up
+            event.preventDefault();
             if (moveUp()) {
                 setTimeout(generateOneNumber(), 200);
                 setTimeout(isGameOver(), 400);
             }
             break;
-        case 39:
+        case 39: // Right
+            event.preventDefault();
             if (moveRight()) {
                 setTimeout(generateOneNumber(), 200);
                 setTimeout(isGameOver(), 400);
             }
             break;
-        case 40:
+        case 40: // Down
+            event.preventDefault();
             if (moveDown()) {
                 setTimeout(generateOneNumber(), 200);
                 setTimeout(isGameOver(), 400);
@@ -114,6 +123,50 @@ $(document).keydown(function (event) {
             break;
         default:
             break;
+    }
+});
+// 支持触摸
+document.addEventListener('touchstart', function (event) {
+    startx = event.touches[0].pageX;
+    starty = event.touches[0].pageY;
+});
+document.addEventListener('touchmove', function (event) {
+    event.preventDefault();
+});
+document.addEventListener('touchend', function (event) {
+
+    endx = event.changedTouches[0].pageX;
+    endy = event.changedTouches[0].pageY;
+
+    var deltax = endx - startx;
+    var deltay = endy - starty;
+
+    if (Math.abs(deltax) < 0.2 * document.body.clientWidth && Math.abs(deltay) < 0.2 * document.body.clientWidth)
+        return;
+    if (Math.abs(deltax) >= Math.abs(deltay)) { // X
+        if (deltax > 0) { // Right
+            if (moveRight()) {
+                setTimeout(generateOneNumber(), 200);
+                setTimeout(isGameOver(), 400);
+            }
+        } else { // Left
+            if (moveLeft()) {
+                setTimeout(generateOneNumber(), 200);
+                setTimeout(isGameOver(), 400);
+            }
+        }
+    } else { // Y
+        if (deltay > 0) { // Down
+            if (moveDown()) {
+                setTimeout(generateOneNumber(), 200);
+                setTimeout(isGameOver(), 400);
+            }
+        } else { // Up
+            if (moveUp()) {
+                setTimeout(generateOneNumber(), 200);
+                setTimeout(isGameOver(), 400);
+            }
+        }
     }
 });
 
