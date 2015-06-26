@@ -141,7 +141,7 @@ document.addEventListener('touchend', function (event) {
     var deltax = endx - startx;
     var deltay = endy - starty;
 
-    if (Math.abs(deltax) < 0.2 * document.body.clientWidth && Math.abs(deltay) < 0.2 * document.body.clientWidth)
+    if (Math.abs(deltax) < 0.1 * document.body.clientWidth && Math.abs(deltay) < 0.1 * document.body.clientWidth)
         return;
     if (Math.abs(deltax) >= Math.abs(deltay)) { // X
         if (deltax > 0) { // Right
