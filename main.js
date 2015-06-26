@@ -197,7 +197,7 @@ function moveLeft() {
                 }
                 if (board[i][k] == board[i][j]) { // 有相等格子
                     showMoveAnimation(i, j, i, k);
-                    //setTimeout(showNumberWithAnimation(i, k, board[i][k], 'add'), 190);
+                    setTimeout(showNumberWithAnimation(i, k, board[i][k], 'add'), 190);
                     board[i][k] += board[i][j];
                     board[i][j] = 0;
 
@@ -237,7 +237,7 @@ function moveUp() {
                 }
                 if (board[k][j] == board[i][j]) { // 有相等格子
                     showMoveAnimation(i, j, k, j);
-                    //setTimeout(showNumberWithAnimation(i, k, board[i][k], 'add'), 190);
+                    setTimeout(showNumberWithAnimation(i, k, board[i][k], 'add'), 190);
                     board[k][j] += board[i][j];
                     board[i][j] = 0;
 
@@ -277,7 +277,7 @@ function moveRight() {
                 }
                 if (board[i][k] == board[i][j]) { // 有相等格子
                     showMoveAnimation(i, j, i, k);
-                    //setTimeout(showNumberWithAnimation(i, k, board[i][k], 'add'), 190);
+                    setTimeout(showNumberWithAnimation(i, k, board[i][k], 'add'), 190);
                     board[i][k] += board[i][j];
                     board[i][j] = 0;
 
@@ -317,7 +317,7 @@ function moveDown() {
                 }
                 if (board[k][j] == board[i][j]) { // 有相等格子
                     showMoveAnimation(i, j, k, j);
-                    //setTimeout(showNumberWithAnimation(i, k, board[i][k], 'add'), 190);
+                    setTimeout(showNumberWithAnimation(i, k, board[i][k], 'add'), 190);
                     board[k][j] += board[i][j];
                     board[i][j] = 0;
 
