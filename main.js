@@ -52,7 +52,7 @@ function generateOneNumber() {
             break;
     } while (true);
     // 随机一个数字
-    var randNumber = Math.random() < 0.5 ? 1024 : 11114;
+    var randNumber = Math.random() < 0.5 ? 2 : 4;
     // 位置上显示数字
     board[randx][randy] = randNumber;
     showNumberWithAnimation(randx, randy, randNumber, 'generate');
@@ -86,7 +86,7 @@ function updateBoardView() {
         }
     }
     $('.number-cell').css('line-height', '100px');
-    $('.number-cell').css('font-size', '40px');
+    $('.number-cell').css('font-size', '60px');
 }
 
 // 获取事件
